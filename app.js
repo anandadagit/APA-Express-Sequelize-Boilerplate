@@ -49,6 +49,15 @@ app.post('/', async (req, res) => {
   }
 });
 
+app.get('/:id', async (req, res) => {
+  const id = req.params.id;
+  const user = await User.findByPk(id);
+  console.log(user.id);
+  console.log(user.email);
+  // res.send("Hello world");
+  res.render('user', { user });
+});
+
 // Sync database and start server
 sequelize.sync().then(() => {
   app.listen(port, () => {
