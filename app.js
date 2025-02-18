@@ -5,7 +5,7 @@ const path = require('path');
 const app = express();
 const port = 3000;
 
-// Initialize Sequelize
+// Initialize Sequelize: https://sequelize.org/
 const sequelize = new Sequelize({
   dialect: 'sqlite',
   storage: 'database.sqlite'
@@ -24,7 +24,7 @@ const User = sequelize.define('User', {
   }
 });
 
-// Middleware
+// Middleware and view engine 
 app.use(express.urlencoded({ extended: true }));
 app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, 'views'));
