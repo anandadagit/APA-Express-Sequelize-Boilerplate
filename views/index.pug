@@ -1,0 +1,20 @@
+doctype html
+html
+  head
+    title Users
+  body
+    h1 Users
+    form(action="/" method="POST")
+      div
+        label(for="name") Name:
+        input(type="text" name="name" required)
+      div
+        label(for="email") Email:
+        input(type="email" name="email" required)
+      div
+        button(type="submit") Add User
+    h2 All Users
+    ul
+      each user in users
+        li
+          a(href=`/${user.id}`) #{user.name} (#{user.email})
