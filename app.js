@@ -24,12 +24,12 @@ const User = sequelize.define('User', {
   }
 });
 
-// Middleware and view engine 
+// Middleware and view engine: https://expressjs.com/en/guide/using-template-engines.html
 app.use(express.urlencoded({ extended: true }));
 app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, 'views'));
 
-// Routes
+// Routes: https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs/routes
 app.get('/', async (req, res) => {
   try {
     const users = await User.findAll();
